@@ -1,0 +1,13 @@
+from sklearn import preprocessing
+import pandas as pd
+from scipy import stats
+#导入数据
+data = pd.read_excel('du1.xlsx', 'Sheet1')
+#标准化对象
+min_max_normalizer = preprocessing.scale(data)
+#df对象
+data_frame_normalized = pd.DataFrame(min_max_normalizer)
+print(data_frame_normalized)
+#正态检验
+value = stats.shapiro(data_frame_normalized)
+print(value)
